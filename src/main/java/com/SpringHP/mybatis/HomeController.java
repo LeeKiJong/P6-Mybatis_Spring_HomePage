@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -63,9 +65,24 @@ public class HomeController {
 		return "/writeForm";
 	}
 	@RequestMapping("/write")
-	public String write() {
+	public String write(HttpServletRequest request, Model model) {
+		IDao dao = sqlSession.getMapper(IDao.class);
+		dao.writeDao(request.getParameter("mWriter"), request.getParameter("mcontent"));
 		
-		return "/write";
+		return "redirect:list";
+	}
+	
+	@RequestMapping("/view")
+	public String view() {
+		return "/view";
+	}
+	
+	@RequestMapping("/delete")
+	public String delete(HttpServletRequest request, Model model) {
+		IDao dao = sqlSession.getMapper(IDao.class);
+		dao.deleteDao(request.getParameter("mId"));
+		
+		return "redirect:list";
 	}
 	
 }

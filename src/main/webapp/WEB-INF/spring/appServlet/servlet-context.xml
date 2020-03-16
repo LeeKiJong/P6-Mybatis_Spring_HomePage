@@ -44,9 +44,9 @@
 		<beans:property name="mapperLocations" value = "classpath:com/javalec/SpringHP/dao/mapper/*.xml"></beans:property>
 	</beans:bean>
 	
-	<beans:baen id = "sqlSession" class = "org.mybatis.spring.SqlSessionTemplate">
+	<beans:bean id = "sqlSession" class = "org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index = "0" ref = "sqlSessionFactory"></beans:constructor-arg> 
-	</beans:baen>
+	</beans:bean>
 	
 	
 	
