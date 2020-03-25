@@ -84,5 +84,16 @@ public class HomeController {
 		
 		return "redirect:list";
 	}
+
+	@RequestMapping("/admin")
+	public String admin() {
+		return "/MainPage/admin";
+	}
+	
+	@RequestMapping("/user")
+	public String user() {
+		return "/MainPage/user";
+	}
+
 	
 }
