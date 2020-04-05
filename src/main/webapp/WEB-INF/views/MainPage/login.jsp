@@ -26,7 +26,7 @@
 					<div class="col-12">
 						<input type="text" name="id"
 							value="<%if (session.getAttribute("id") != null)
-				out.println(session.getAttribute("id"));%>"
+								out.println(session.getAttribute("id"));%>"
 							placeholder="ID" />
 					</div>
 					<h4>PW</h4>
