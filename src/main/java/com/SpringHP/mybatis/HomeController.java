@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.SpringHP.mybatis.command.JoinCommand;
 import com.SpringHP.mybatis.dao.ContentDao;
 import com.SpringHP.mybatis.dao.IDao;
 
@@ -49,6 +50,13 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
+	}
+	
+	@RequestMapping("/join")
+	public String join(Model model){
+		System.out.println("join");
+		
+		return "join";
 	}
 	
 	@RequestMapping("/list")
