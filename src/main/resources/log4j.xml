@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.SpringHP.Home">
+	<logger name="com.test.homepage">
 		<level value="info" />
 	</logger>
 	
