@@ -15,8 +15,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.javalec.spring_pjt_board.util.Constant;
 import com.test.homepage.command.Command;
-import com.test.homepage.dao.IDao;
+import com.test.homepage.dao.MDao;
 
 /**
  * Handles requests for the application home page.
@@ -33,7 +34,7 @@ public class HomeController {
 	@Autowired
 	public void setTemplate(JdbcTemplate template){
 	  this.template =template;
-	  Contant.template = this.template;
+	  Constant.template = this.template;
 	}
 	
 

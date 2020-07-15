@@ -2,7 +2,7 @@ package com.test.homepage.dto;
 
 import java.sql.Timestamp;
 
-public class IDto {
+public class MDto {
 
 	private String id;
 	private String pw;
@@ -11,10 +11,10 @@ public class IDto {
 	private Timestamp rDate;
 	private String address;
 	
-	public IDto() {
+	public MDto() {
 	}
 	
-	public IDto(String id, String pw, String name, String eMail, Timestamp rDate, String address) {
+	public MDto(String id, String pw, String name, String eMail, Timestamp rDate, String address) {
 		super();
 		this.id = id;
 		this.pw = pw;

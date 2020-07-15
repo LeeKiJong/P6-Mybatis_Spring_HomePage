@@ -26,11 +26,21 @@
 		<beans:property name="dataSource" ref="dataSource" />
 	</beans:bean>
 
+	<beans:bean id = "sqlSessionFactory" class = "org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name = "dataSource" ref = "dataSource"></beans:property>
+		<beans:property name = "mapperLocations" value = "classpath:com/test/homepage/dao/mapper/*.xml"></beans:property>
+	</beans:bean>
+	
+	<beans:bean id = "sqlSession" class = "org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg index = "0" ref = "sqlSessionFactory"></beans:constructor-arg>	
+	</beans:bean>
+	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+	
 	
 	<context:component-scan base-package="com.test.homepage" />
 	
