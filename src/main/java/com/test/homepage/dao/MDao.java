@@ -10,11 +10,12 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.javalec.jsp_homepage.Dao.MemberDao;
-import com.javalec.jsp_homepage.Dto.MemberDto;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.javalec.spring_pjt_board.util.Constant;
 import com.test.homepage.dto.ContentDto;
 
-public class IDao {
+public class MDao {
 
 	public static final int MEMBER_NONEXISTENT = 0;			//동일아이디 이미 존재
 	public static final int MEMBER_EXISTENT = 1;			//동일아이디 없음
@@ -27,23 +28,17 @@ public class IDao {
 	
 	DataSource dataSource;
 	
-	public IDao(){
-		// TODO Auto-generated constructor stub
-
-		try {
-			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");		//커넥션풀 사용. InitialContext에 DB 로그인 정보가 담겨있다.
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
+	JdbcTemplate template = null;
+	
+	public MDao(){
+		template = Constant.template;
 	}
 	
 	public int JoinOK(String PId, String PPw, String PName, String PEMail, Timestamp PTime, String PAddress) {
 		//회원가입 성공 여부를 확인하는 함수
 		int Join_Result = 0;
 		if (confirmId(PId) == 0) {		//DB에 아이디가 없다면
-			IDto dto = new MemberDto(PId, PPw, PName, PEMail, PTime, PAddress);
+			IDto dto = new IDto(PId, PPw, PName, PEMail, PTime, PAddress);
 			Join_Result = insertMember(dto);	//insertMember를 통해 회원가입 정보를 DB에 삽입
 		}
 

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
-import com.test.homepage.dao.IDao;
+import com.test.homepage.dao.MDao;
 
 
 public class JoinCommand implements Command {
@@ -29,7 +29,7 @@ public class JoinCommand implements Command {
 		Timestamp time = new Timestamp(System.currentTimeMillis());
 		String address = request.getParameter("address");
 
-		IDao dao = new IDao();
+		MDao dao = new MDao();
 		int Join_Result = dao.JoinOK(id, pw, name, eMail, time, address);	//사용자의 회원가입 정보를 dao의 JoinOK를 통해 회원가입 성공 여부를 받아온다.
 		HttpSession session = request.getSession();
 		session.setAttribute("id", id);

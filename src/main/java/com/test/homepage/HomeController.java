@@ -9,11 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.test.homepage.command.Command;
 import com.test.homepage.dao.IDao;
 
 /**
@@ -23,8 +25,18 @@ import com.test.homepage.dao.IDao;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	//ContentDao dao;
 	
+	Command command;
+	
+	public JdbcTemplate template;
+
+	@Autowired
+	public void setTemplate(JdbcTemplate template){
+	  this.template =template;
+	  Contant.template = this.template;
+	}
+	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -46,6 +58,8 @@ public class HomeController {
 	public String join(Model model){
 		System.out.println("join");
 		
+		command = new JoinCommand();
+		command.execute(model);
 		return "join";
 	}
 	

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.SpringHP.mybatis.dao.MDao">
+    <select id = "listDao" resultType = "com.SpringHP.mybatis.dto.ContentDto">
+    	SELECT * FORM BOARD ORDER BY MID DESC
+    </select>
+    <insert id = "MInsertDao">
+    	INSERT INTO BOARD (MID, MWRITER, MCONTENT) VALUES (BOARD_SEQ.NEXTVAL, #{param1), #{param2})
+    </insert>
+
+</mapper>
