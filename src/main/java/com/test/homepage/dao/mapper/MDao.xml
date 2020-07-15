@@ -5,6 +5,6 @@
     
 <mapper namespace="com.SpringHP.mybatis.dao.MDao">
     <insert id = "MInsertDao">
-    	INSERT INTO MEMBERS (id, pw, name, eMail, rDate, address) VALUES (#{param1), #{param2}, #{param3), #{param4}, #{param5), #{param6})
+    	INSERT INTO MEMBERS (ID, PW, NAME, EMAIL, RDATE, ADDRESS) VALUES (#{param1), #{param2}, #{param3), #{param4}, #{param5), #{param6})
     </insert>
 </mapper>
