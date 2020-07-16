@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.javalec.spring_pjt_board.util.Constant;
-import com.test.homepage.command.Command;
 import com.test.homepage.dao.MDao;
+import java.sql.Timestamp;
 
 /**
  * Handles requests for the application home page.
@@ -28,8 +28,6 @@ import com.test.homepage.dao.MDao;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	Command command;
 	
 	public JdbcTemplate template;
 
@@ -64,55 +62,16 @@ public class HomeController {
 	public String join(HttpServletRequest request, Model model){
 		System.out.println("join");
 		MDao dao = sqlSession.getMapper(MDao.class);
-		dao.MInsertDao(request.getParameter());
-		MDao dao = sqlSession.getMapper(MDao.class)
-		command = new JoinCommand();
-		command.execute(model);
-		return "join";
-	}
-	
-	@RequestMapping("/list")
-	public String list(Model model) {
-		//IDao dao = sqlSession.getMapper(IDao.class);
-		
-		//model.addAttribute("list", dao.listDao());
-		
-		return "/list";
-	}
-	@RequestMapping("/writeForm")
-	public String writeForm() {
-		
-		return "/writeForm";
-	}
-	@RequestMapping("/write")
-	public String write(HttpServletRequest request, Model model) {
-		//IDao dao = sqlSession.getMapper(IDao.class);
-		//dao.writeDao(request.getParameter("mWriter"), request.getParameter("mcontent"));
-		
-		return "redirect:list";
-	}
-	
-	@RequestMapping("/view")
-	public String view() {
-		return "/view";
-	}
-	
-	@RequestMapping("/delete")
-	public String delete(HttpServletRequest request, Model model) {
-		//IDao dao = sqlSession.getMapper(IDao.class);
-		//dao.deleteDao(request.getParameter("mId"));
-		
-		return "redirect:list";
-	}
+		dao.MInsertDao(request.getParameter("id"), 
+				request.getParameter("pw"), 
+				request.getParameter("name"), 
+				request.getParameter("email"), 
+				new Timestamp(System.currentTimeMillis()), 
+				request.getParameter("address"));
 
-	@RequestMapping("/admin")
-	public String admin() {
-		return "/MainPage/admin";
+		return "redirect:home";
 	}
 	
-	@RequestMapping("/user")
-	public String user() {
-		return "/MainPage/user";
-	}
+
 	
 }

@@ -14,7 +14,7 @@
 			<header class="major">
 				<h2>회원가입</h2>
 			</header>
-			<form action="joinOK.do" method="post" name="reg_frm">
+			<form action="join" method="post" name="reg_frm">
 				<div class="row gtr-uniform">
 					<div class="col-12">
 						<input type="text" name="id" placeholder="ID" />
