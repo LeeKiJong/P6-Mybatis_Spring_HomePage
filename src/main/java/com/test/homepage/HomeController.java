@@ -29,7 +29,7 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	public JdbcTemplate template;
+	/*public JdbcTemplate template;
 
 	@Autowired
 	private SqlSession sqlSession;
@@ -38,7 +38,7 @@ public class HomeController {
 	public void setTemplate(JdbcTemplate template){
 	  this.template =template;
 	  Constant.template = this.template;
-	}
+	}*/
 	
 
 	/**
@@ -55,7 +55,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "MainPage/home";
 	}
 	
 	@RequestMapping("/join")
