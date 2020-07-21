@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.javalec.spring_mybatis">
+	<logger name="com.test.homepage">
 		<level value="info" />
 	</logger>
 	
