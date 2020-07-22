@@ -1,5 +1,6 @@
 package com.test.homepage;
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -32,13 +33,14 @@ public class HomeController {
 	public JdbcTemplate template;
 
 	@Autowired
-	private SqlSession sqlsession;
+	private SqlSession sqlSession;
 	
 	@Autowired
 	public void setTemplate(JdbcTemplate template){
 	  this.template =template;
 	  Constant.template = this.template;
 	}
+	
 	
 
 	/**
@@ -58,18 +60,23 @@ public class HomeController {
 		return "MainPage/home";
 	}
 	
-	@RequestMapping("/join")
-	public String join(HttpServletRequest request, Model model){
-		System.out.println("join");
-		/*MDao dao = sqlSession.getMapper(MDao.class);
+	@RequestMapping("/join_check")
+	public String join_check(HttpServletRequest request, Model model){
+		
+		MDao dao = sqlSession.getMapper(MDao.class);
 		dao.MInsertDao(request.getParameter("id"), 
 				request.getParameter("pw"), 
 				request.getParameter("name"), 
-				request.getParameter("email"), 
+				request.getParameter("eMail"), 
 				new Timestamp(System.currentTimeMillis()), 
-				request.getParameter("address"));*/
+				request.getParameter("address"));
 
-		return "redirect:MainPage/home";
+		return "redirect:/";
+	}
+	
+	@RequestMapping("/join")
+	public String join(Model model){
+		return "MainPage/join";
 	}
 	
 

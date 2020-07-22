@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="css_folder/assets/css/main.css" />
+<link rel="stylesheet" href="resources/css_folder/assets/css/main.css" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Join Page</title>
-<script language="JavaScript" src="members.js"></script>
+<script language="JavaScript" src="resources/members.js"></script>
 </head>
 <body>
 	<section id=footer>
@@ -14,7 +14,7 @@
 			<header class="major">
 				<h2>회원가입</h2>
 			</header>
-			<form action="join" method="post" name="reg_frm">
+			<form action="join_check" method="post" name="reg_frm">
 				<div class="row gtr-uniform">
 					<div class="col-12">
 						<input type="text" name="id" placeholder="ID" />
@@ -38,8 +38,8 @@
 						<ul class="actions special">
 							<li><input type="submit" value="회원가입"
 								onclick="infoConfirm()" class="primary"></li>
-							<li><input type="reset" value="취소"
-								onclick="javascript:window.location = 'login.do'"
+							  <li><input type="reset" value="취소"
+								onclick="javascript:window.location = 'MainPage/login.jsp'"
 								class="primary"></li>
 						</ul>
 					</div>
