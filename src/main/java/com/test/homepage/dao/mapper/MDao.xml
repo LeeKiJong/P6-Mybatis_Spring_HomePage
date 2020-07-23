@@ -3,9 +3,22 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="com.test.homepage.dao.MDao">
-    <insert id = "MInsertDao">
-    	INSERT INTO MEMBERS (ID, PW, NAME, EMAIL, RDATE, ADDRESS) VALUES (#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6})
+<mapper namespace="members">
+    <insert id = "join" parameterType = "dto.MDto">
+    	insert into members values( 
+    	#{id}, 
+    	#{pw}, 
+    	#{name}, 
+    	#{birth}, 
+    	#{email}, 
+    	#{phone}, 
+    	#{gender}, 
+    	null, 
+    	#{oaddress}, 
+    	#{address}, 
+    	#{detailaddress}, 
+    	0 
+    	)
     </insert>
 			
 </mapper>

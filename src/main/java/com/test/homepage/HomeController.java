@@ -17,8 +17,11 @@ import org.apache.ibatis.session.SqlSession;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.test.homepage.dao.MDao;
+import com.test.homepage.dto.MDto;
+import com.test.homepage.service.MemberService;
 import com.test.homepage.util.Constant;
 
 
@@ -30,18 +33,17 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	public JdbcTemplate template;
+	@Autowired
+	private MemberService memberservice;
+	
 
-	@Autowired
-	private SqlSession sqlSession;
-	
-	@Autowired
-	public void setTemplate(JdbcTemplate template){
-	  this.template =template;
-	  Constant.template = this.template;
+	public MemberService getMemberservice() {
+		return memberservice;
 	}
-	
-	
+
+	public void setMemberservice(MemberService memberservice) {
+		this.memberservice = memberservice;
+	}
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -60,18 +62,13 @@ public class HomeController {
 		return "MainPage/home";
 	}
 	
-	@RequestMapping("/join_check")
-	public String join_check(HttpServletRequest request, Model model){
+	@RequestMapping(value = "/join_check", method = RequestMethod.POST)
+	public ModelAndView join_check(MDto dto){
+		ModelAndView mav = new ModelAndView();
+		memberservice.memberJoinProcess(dto);
+		mav.setViewName("MainPage/home");
+		return mav;
 		
-		MDao dao = sqlSession.getMapper(MDao.class);
-		dao.MInsertDao(request.getParameter("id"), 
-				request.getParameter("pw"), 
-				request.getParameter("name"), 
-				request.getParameter("eMail"), 
-				new Timestamp(System.currentTimeMillis()), 
-				request.getParameter("address"));
-
-		return "redirect:/";
 	}
 	
 	@RequestMapping("/join")
