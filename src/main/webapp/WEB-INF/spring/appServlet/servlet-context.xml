@@ -36,19 +36,17 @@
 		<beans:property name = "mapperLocations" value = "classpath*:com/test/homepage/dao/mapper/*.xml"></beans:property>
 	</beans:bean>
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-  		<beans:constructor-arg ref="sqlSessionFactory" />
+  		<beans:constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</beans:bean>
 
 
-	<beans:bean id="dao" class="com.test.homepage.dao.imp.MDaoImp">
+	 <beans:bean id="dao" class="com.test.homepage.dao.imp.MDaoImp">
 		<beans:property name="sqlSession" ref="sqlSession" />
 	 </beans:bean> 
 	 
-	<beans:bean class="com.test.homepage.HomeController"> 
+	  <beans:bean class="com.test.homepage.HomeController"> 
 		<beans:property name="memberservice" ref="memberservice" /> 
 	</beans:bean>
-	
-	<context:component-scan base-package="com.test.homepage" />
 	
 	
 	
