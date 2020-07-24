@@ -47,7 +47,7 @@
 	  <beans:bean class="com.test.homepage.HomeController"> 
 		<beans:property name="memberservice" ref="memberservice" /> 
 	</beans:bean>
-	
+
 	
 	
 </beans:beans>
