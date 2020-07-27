@@ -14,14 +14,14 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
-	
+
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.test.homepage" />
+	<context:component-scan base-package="com.project6.springhp" />
 	
 	
 	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -33,21 +33,20 @@
 	
 	<beans:bean id = "sqlSessionFactory" class = "org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name = "dataSource" ref = "dataSource"></beans:property>
-		<beans:property name = "mapperLocations" value = "classpath*:com/test/homepage/dao/mapper/*.xml"></beans:property>
+		<beans:property name = "mapperLocations" value = "classpath*:com/project6/springhp/dao/mapper/*.xml"></beans:property>
 	</beans:bean>
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
   		<beans:constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</beans:bean>
 
 
-	 <beans:bean id="dao" class="com.test.homepage.dao.imp.MDaoImp">
+	 <beans:bean id="dao" class="com.project6.springhp.dao.imp.MDaoImp">
 		<beans:property name="sqlSession" ref="sqlSession" />
 	 </beans:bean> 
 	 
-	  <beans:bean class="com.test.homepage.HomeController"> 
+	  <beans:bean class="com.project6.springhp.controller.LoginController"> 
 		<beans:property name="memberservice" ref="memberservice" /> 
 	</beans:bean>
-
 	
 	
 </beans:beans>
