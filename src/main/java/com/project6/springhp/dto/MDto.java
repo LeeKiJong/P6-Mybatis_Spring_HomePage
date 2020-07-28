@@ -3,29 +3,18 @@ package com.project6.springhp.dto;
 import java.sql.Timestamp;
 
 public class MDto {
-	private String id; 
-	private String pw; 
-	private String name; 
-	private String birth;
-	private String email;
-	private String phone; 
-	private String gender; 
-	private String hobby; 
-	private String oaddress; 
-	private String address; 
-	private String detailaddress; 
-	private int point;
-	public String getId() {
-		return id;
+	String uid;
+	String name;
+	String pwd;
+	String re_pwd;
+	String email;
+	String grade;
+	String reg_dt;
+	public String getUid() {
+		return uid;
 	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getPw() {
-		return pw;
-	}
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
 	public String getName() {
 		return name;
@@ -33,11 +22,17 @@ public class MDto {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getBirth() {
-		return birth;
+	public String getPwd() {
+		return pwd;
 	}
-	public void setBirth(String birth) {
-		this.birth = birth;
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public String getRe_pwd() {
+		return re_pwd;
+	}
+	public void setRe_pwd(String re_pwd) {
+		this.re_pwd = re_pwd;
 	}
 	public String getEmail() {
 		return email;
@@ -45,49 +40,29 @@ public class MDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhone() {
-		return phone;
+	public String getGrade() {
+		return grade;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
-	public String getGender() {
-		return gender;
+	public String getReg_dt() {
+		return reg_dt;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	public String getHobby() {
-		return hobby;
-	}
-	public void setHobby(String hobby) {
-		this.hobby = hobby;
-	}
-	public String getOaddress() {
-		return oaddress;
-	}
-	public void setOaddress(String oaddress) {
-		this.oaddress = oaddress;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getDetailaddress() {
-		return detailaddress;
-	}
-	public void setDetailaddress(String detailaddress) {
-		this.detailaddress = detailaddress;
-	}
-	public int getPoint() {
-		return point;
-	}
-	public void setPoint(int point) {
-		this.point = point;
+	public void setReg_dt(String reg_dt) {
+		this.reg_dt = reg_dt;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "user_info[ uid = " + uid + 
+				", name = " + name + 
+				", pwd = " + pwd + 
+				", re_pwd= " + re_pwd + 
+				", email = " + email + 
+				", grade = " + grade + 
+				", reg_dt = " + reg_dt + 
+				"]";
+	}
 
 }

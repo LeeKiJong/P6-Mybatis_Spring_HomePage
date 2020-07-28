@@ -1,24 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
-<mapper namespace="members">
-    <insert id = "insert">
-    	insert into members values( 
-    	#{id}, 
-    	#{pw}, 
-    	#{name}, 
-    	#{birth}, 
-    	#{email}, 
-    	#{phone}, 
-    	#{gender}, 
-    	null, 
-    	#{oaddress}, 
-    	#{address}, 
-    	#{detailaddress}, 
-    	0 
-    	)
-    </insert>
-			
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.project6.springhp.dao.mapper.MDao"> 
+	<select id="getUserInfo" resultType="com.project6.springhp.dto.MDto">
+	 	SELECT ID , NAME , PW , EMAIL , GRADE , REG_DT FROM USER_INFO WHERE ID = #{uid} 
+	</select>
+	
+	<select id="getUserList" resultType="com.project6.springhp.dto.MDto"> 
+	 	SELECT ID , NAME , PW , EMAIL , GRADE , REG_DT FROM USER_INFO 
+	</select> 
+	
+	<insert id="insertUser" parameterType="com.project6.springhp.dto.MDto"> 
+	 	INSERT INTO USER_INFO (ID, NAME, PW, EMAIL, REG_DT) VALUES ( #{uid} , #{name} , #{pwd} , #{email} , now() ) 
+	</insert> 
+	
+	<update id="updateUser" parameterType="com.project6.springhp.dto.MDto"> 
+	 	UPDATE USER_INFO SET NAME = #{name} , PW = #{pwd} , EMAIL = #{email} , GRADE = #{grade} WHERE ID = #{uid} 
+	</update> 
+	
+	<delete id="deleteUser" parameterType="int"> 
+		DELETE FROM USER_INFO WHERE ID = #{uid} 
+	</delete> 
+	
 </mapper>
+

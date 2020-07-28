@@ -39,14 +39,6 @@
   		<beans:constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</beans:bean>
 
-
-	 <beans:bean id="dao" class="com.project6.springhp.dao.imp.MDaoImp">
-		<beans:property name="sqlSession" ref="sqlSession" />
-	 </beans:bean> 
-	 
-	  <beans:bean class="com.project6.springhp.controller.LoginController"> 
-		<beans:property name="memberservice" ref="memberservice" /> 
-	</beans:bean>
 	
 	
 </beans:beans>
