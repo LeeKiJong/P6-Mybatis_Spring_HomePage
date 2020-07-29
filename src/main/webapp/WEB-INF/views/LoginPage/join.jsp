@@ -2,21 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<script> 
-$(document).on('click', '#btnSignup', function(e){ 
-	e.preventDefault(); 
-	$("#form").submit(); 
-	}); 
-$(document).on('click', '#btnCancle', function(e){ 
-	e.preventDefault(); 
-	$('#uid').val(''); 
-	$('#name').val(''); 
-	$('#pwd1').val(''); 
-	$('#pwd2').val(''); 
-	$('#email').val(''); 
-	//location.href="${pageContext.request.contextPath}/home";
-	}); 
-	</script>
+<script> $(document).on('click', '#btnSignup', function(e){ e.preventDefault();
+$("#form").submit();
+}); 
+$(document).on('click', '#btnCancle', function(e){ e.preventDefault(); $('#uid').val(''); $('#name').val(''); $('#pwd1').val(''); $('#pwd2').val(''); $('#email').val(''); 
+//location.href="${pageContext.request.contextPath}/home"; 
+}); 
+</script>
 <article>
 	<div class="container col-md-6" role="main">
 		<div class="card">
@@ -67,9 +59,16 @@ $(document).on('click', '#btnCancle', function(e){
 				</form:form>
 			</div>
 		</div>
+		<span style="font-size:11pt;"> 
+		<a href="#" onClick="fn_btnSignupClick()">Sign up</a> 
+		</span> 
+		<script> function fn_btnSignupClick(){ location.href ="${pageContext.request.contextPath}/P6_Homepage/signupForm"; }
+		</script>
 		<div style="margin-top: 10px">
-			<button type="button" class="btn btn-sm btn-primary" id="btnSignup">회원가입</button>
+			
 			<button type="button" class="btn btn-sm btn-primary" id="btnCancel">취소</button>
 		</div>
+		
+
 	</div>
 </article>
