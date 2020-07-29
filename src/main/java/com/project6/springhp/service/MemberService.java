@@ -8,8 +8,8 @@ public interface MemberService {
 
 	public List<MDto> getUserList() throws Exception; 
 	public MDto getUserInfo(String uid) throws Exception; 
-	public void insertUser(MDto userVO) throws Exception; 
-	public void updateUser(MDto userVO) throws Exception; 
+	public void insertUser(MDto Mdto) throws Exception; 
+	public void updateUser(MDto Mdto) throws Exception; 
 	public void deleteUser(String uid) throws Exception;
 
 }

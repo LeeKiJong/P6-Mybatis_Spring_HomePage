@@ -29,6 +29,12 @@ public class LoginController {
 	@Inject 
 	private MemberService memberService; 
 	
+	@RequestMapping(value = "/login", method = RequestMethod.GET) 
+	public String loginForm(Model model) throws Exception { 
+		model.addAttribute("Mdto", new MDto()); 
+		return "LoginPage/login"; 
+	} 
+	
 	@RequestMapping(value = "/getUserList", method = RequestMethod.GET) 
 	public String getUserList(Model model) throws Exception{ 
 		logger.info("getUserList()...."); 

@@ -10,7 +10,7 @@
 	</select> 
 	
 	<insert id="insertUser" parameterType="com.project6.springhp.dto.MDto"> 
-	 	INSERT INTO USER_INFO (ID, NAME, PW, EMAIL, REG_DT) VALUES ( #{uid} , #{name} , #{pwd} , #{email} , now() ) 
+	 	INSERT INTO USER_INFO (ID, NAME, PW, EMAIL, REG_DT) VALUES ( #{uid} , #{name} , #{pwd} , #{email} , CURRENT_TIMESTAMP ) 
 	</insert> 
 	
 	<update id="updateUser" parameterType="com.project6.springhp.dto.MDto"> 

@@ -1,6 +1,5 @@
 package com.project6.springhp.dto;
 
-import java.sql.Timestamp;
 
 public class MDto {
 	String uid;

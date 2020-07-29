@@ -17,36 +17,36 @@ public class MemberServiceImp implements MemberService{
 	private static final Logger logger = LoggerFactory.getLogger(MemberServiceImp.class); 
 	
 	@Inject 
-	private MDao userDAO; 
+	private MDao Mdao; 
 	
 	
 	@Override 
 	public List<MDto> getUserList() throws Exception { 
-		return userDAO.getUserList(); 
+		return Mdao.getUserList(); 
 	} 
 	
 	
 	@Override 
 	public MDto getUserInfo(String uid) throws Exception { 
-		return userDAO.getUserInfo(uid); 
+		return Mdao.getUserInfo(uid); 
 	} 
 	
 	
 	@Override 
-	public void insertUser(MDto userVO) throws Exception { 
-		userDAO.insertUser(userVO); 
+	public void insertUser(MDto Mdto) throws Exception { 
+		Mdao.insertUser(Mdto); 
 	} 
 	
 	
 	@Override 
-	public void updateUser(MDto userVO) throws Exception { 
-		userDAO.updateUser(userVO); 
+	public void updateUser(MDto Mdto) throws Exception { 
+		Mdao.updateUser(Mdto); 
 	} 
 	
 	
 	@Override 
 	public void deleteUser(String uid) throws Exception { 
-		userDAO.deleteUser(uid); 
+		Mdao.deleteUser(uid); 
 	}
 
 
