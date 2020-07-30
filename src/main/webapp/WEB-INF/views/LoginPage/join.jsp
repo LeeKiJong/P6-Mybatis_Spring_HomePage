@@ -10,7 +10,7 @@
 		</div>
 	</div>
 	<div class="col-sm-6 col-md-offset-3">
-		<form action="${pageContext.request.contextPath}/P6_Homepage/insertUser" method="post" role="form"
+		<form action="${pageContext.request.contextPath}/user/insertUser" method="post" role="form"
 			id="usercheck" name="member">
 			<div class="form-group">
 				<label for="uid">아이디</label> <input type="text" class="form-control"

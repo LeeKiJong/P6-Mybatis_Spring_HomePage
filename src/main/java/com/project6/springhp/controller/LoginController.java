@@ -21,7 +21,7 @@ import com.project6.springhp.dto.MDto;
 import com.project6.springhp.service.MemberService;
 
 @Controller
-@RequestMapping(value = "/P6_Homepage")
+@RequestMapping(value = "/user")
 public class LoginController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class); 
@@ -46,7 +46,7 @@ public class LoginController {
 	public String insertUser(@ModelAttribute("Mdto") MDto Mdto 
 			, RedirectAttributes rttr) throws Exception { 
 		memberService.insertUser(Mdto); 
-		return "redirect:/P6_Homepage/getUserList"; 
+		return "redirect:/user/getUserList"; 
 	}
 	
 	
