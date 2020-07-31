@@ -30,13 +30,17 @@
 		location.href = "${pageContext.request.contextPath}/board/boardForm";
 
 	});
+	
+	function fn_contentView(bid){
 
+		var url = "${pageContext.request.contextPath}/board/getBoardContent";
+
+		url = url + "?bid="+bid;
+
+		location.href = url;
+
+	}
 </script>
-
-
-
-
-
 </head>
 
 <body>
@@ -104,7 +108,14 @@
 
 										<td><c:out value="${list.bid}" /></td>
 
-										<td><c:out value="${list.title}" /></td>
+										<td>
+
+											<a href="#" onClick="fn_contentView(<c:out value="${list.bid}"/>)">
+												<c:out value="${list.title}"/>
+											</a>
+										
+										</td>
+
 
 										<td><c:out value="${list.reg_id}" /></td>
 

@@ -22,6 +22,17 @@ public class BoardServiceImp implements BoardService{
 		Bdao.insertBoard(Bdto);
 
 	}
+	
+	@Override
+	public BDto getBoardContent(int bid) throws Exception{
+
+		Bdao.updateViewCnt(bid);
+
+		return Bdao.getBoardContent(bid);
+
+	}
+
+
 
 	
 

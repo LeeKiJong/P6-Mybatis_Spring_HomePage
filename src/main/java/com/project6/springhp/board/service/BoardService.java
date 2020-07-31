@@ -8,6 +8,9 @@ import com.project6.springhp.dto.BDto;
 public interface BoardService {
 	public List<BDto> getBoardList() throws Exception;
 	
-	public Map<String, Object> insertBoard(BDto Bdto) throws Exception;
+	public void insertBoard(BDto Bdto) throws Exception;
+	
+	public BDto getBoardContent(int bid) throws Exception;
+
 
 }
