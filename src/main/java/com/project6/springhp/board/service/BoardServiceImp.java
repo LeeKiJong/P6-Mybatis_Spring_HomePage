@@ -1,8 +1,11 @@
 package com.project6.springhp.board.service;
 
-import java.awt.List;
 
 import javax.inject.Inject;
+import java.util.List;
+
+import com.project6.springhp.dao.BDao;
+import com.project6.springhp.dto.BDto;
 
 public class BoardServiceImp implements BoardService{
 	

@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project6.springhp.board.service.BoardService;
+import com.project6.springhp.dto.BDto;
 
 @Controller
 @RequestMapping(value = "/board")
 public class BoardController {
 
-	/*@Inject
+	@Inject
 	private BoardService boardService;
 
-	*/
+	
 
 	@RequestMapping(value = "/getBoardList", method = RequestMethod.GET)
 	public String getBoardList(Model model) throws Exception {
