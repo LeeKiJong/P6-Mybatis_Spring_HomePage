@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project6.springhp.board.service.BoardService;
@@ -30,7 +31,7 @@ public class BoardController {
 	
 	@RequestMapping(value = "/boardFrom")
 	public String boardForm() {
-		return "BoardPage/boradFrom";
+		return "BoardPage/boardForm";
 	}
 	
 	@RequestMapping(value = "/saveBoard", method = RequestMethod.POST)
@@ -43,7 +44,28 @@ public class BoardController {
 		return "redirect:/board/getBoardList";
 
 	}
+	
+	@RequestMapping(value = "/getBoardContent", method = RequestMethod.GET)
+	public String getBoardContent(Model model, @RequestParam("bid") int bid) throws Exception {
+		model.addAttribute("boardContent", boardService.getBoardContent(bid));
+		return "BoardPage/boardContent";
+	}
+	
+	@RequestMapping(value = "/editForm", method = RequestMethod.GET)
+	public String editForm(@RequestParam("bid") int bid
+			, @RequestParam("mode") String mode, Model model) throws Exception {
+
+		model.addAttribute("boardContent", boardService.getBoardContent(bid));
+
+		model.addAttribute("mode", mode);
+
+		model.addAttribute("Bdto", new BDto());
+
+		return "BoardPage/boardForm";
+
+	}
 
 
 
+	
 }	
