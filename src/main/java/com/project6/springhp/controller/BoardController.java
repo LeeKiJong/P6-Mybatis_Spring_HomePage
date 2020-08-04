@@ -35,14 +35,15 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/saveBoard", method = RequestMethod.POST)
-	public String saveBoard(@ModelAttribute("BoardVO") BDto Bdto
-
+	public String saveBoard(@ModelAttribute("Bdto") BDto Bdto
+			, @RequestParam("mode") String mode
 			, RedirectAttributes rttr) throws Exception {
-		//RedirectAttributes를 쓰는 이유: '뒤로 가기' 버튼으로 인한 게시물 도배의 대응책. 이 인자를 사용하면 뒤로가기를 눌러도 글쓰기 폼으로 돌아 가게 된다.
-		boardService.insertBoard(Bdto);
-
+		if (mode.equals("edit")) {
+			boardService.updateBoard(Bdto);
+		} else {
+			boardService.insertBoard(Bdto);
+		}
 		return "redirect:/board/getBoardList";
-
 	}
 	
 	@RequestMapping(value = "/getBoardContent", method = RequestMethod.GET)
@@ -64,7 +65,14 @@ public class BoardController {
 		return "BoardPage/boardForm";
 
 	}
+	
+	@RequestMapping(value = "/deleteBoard", method = RequestMethod.GET)
+	public String deleteBoard(RedirectAttributes rttr, @RequestParam("bid") int bid) throws Exception {
+		boardService.deleteBoard(bid);
+		return "redirect:/board/getBoardList";
 
+	}
+	
 
 
 	

@@ -38,6 +38,19 @@
 		url = url + "&mode=edit";
 		location.href = url;
 	});
+	
+	//삭제 버튼 클릭 이벤트
+
+	$(document).on('click', '#btnDelete', function(){
+
+    var url = "${pageContext.request.contextPath}/board/deleteBoard";
+
+    url = url + "?bid=" + ${boardContent.bid};
+
+		location.href = url;
+
+	});
+	
 </script>
 </head>
 

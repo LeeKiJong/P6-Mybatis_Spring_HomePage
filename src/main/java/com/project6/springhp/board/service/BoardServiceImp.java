@@ -24,6 +24,14 @@ public class BoardServiceImp implements BoardService{
 	}
 	
 	@Override
+	public void updateBoard(BDto Bdto) throws Exception {
+
+		Bdao.updateBoard(Bdto);
+
+	}
+	
+	
+	@Override
 	public BDto getBoardContent(int bid) throws Exception{
 
 		Bdao.updateViewCnt(bid);
@@ -32,7 +40,13 @@ public class BoardServiceImp implements BoardService{
 
 	}
 
+	@Override
 
+	public void deleteBoard(int bid) throws Exception {
+
+		Bdao.deleteBoard(bid);
+
+	}
 
 	
 
