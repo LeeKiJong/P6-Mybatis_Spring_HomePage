@@ -1,6 +1,5 @@
 package com.project6.springhp.dao;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 import com.project6.springhp.dto.MDto;
