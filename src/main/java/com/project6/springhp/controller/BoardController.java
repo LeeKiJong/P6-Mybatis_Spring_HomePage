@@ -24,7 +24,7 @@ public class BoardController {
 
 	@RequestMapping(value = "/getBoardList", method = RequestMethod.GET)
 	public String getBoardList(Model model) throws Exception {
-		//model.addAttribute("boardList", boardService.getBoardList());
+		model.addAttribute("boardList", boardService.getBoardList());
 		return "BoardPage/index";
 
 	}
