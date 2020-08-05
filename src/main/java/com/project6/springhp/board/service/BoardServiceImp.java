@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import com.project6.common.Pagination;
+import com.project6.common.Search;
 import com.project6.springhp.dao.BDao;
 import com.project6.springhp.dto.BDto;
 import com.project6.springhp.service.MemberServiceImp;
@@ -23,8 +24,8 @@ public class BoardServiceImp implements BoardService{
 	private BDao Bdao;
 	
 	@Override 
-	public List<BDto> getBoardList(Pagination pagination) throws Exception{
-		return Bdao.getBoardList(pagination);
+	public List<BDto> getBoardList(Search search) throws Exception{
+		return Bdao.getBoardList(search);
 	}
 	
 	@Override
@@ -54,8 +55,8 @@ public class BoardServiceImp implements BoardService{
 	}
 	
 	@Override
-	public int getBoardListCnt() throws Exception {
-		return Bdao.getBoardListCnt();
+	public int getBoardListCnt(Search search) throws Exception {
+		return Bdao.getBoardListCnt(search);
 	}
 
 

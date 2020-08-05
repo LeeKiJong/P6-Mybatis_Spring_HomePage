@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project6.common.Pagination;
+import com.project6.common.Search;
 import com.project6.springhp.board.service.BoardService;
 import com.project6.springhp.dto.BDto;
 
@@ -28,19 +29,31 @@ public class BoardController {
 			, @RequestParam(required = false, defaultValue = "1") int page
 
 			, @RequestParam(required = false, defaultValue = "1") int range
-	) throws Exception {
+			, @RequestParam(required = false, defaultValue = "title") String searchType
+
+			, @RequestParam(required = false) String keyword
+
+			) throws Exception {
 		
+		Search search = new Search();
+
+		search.setSearchType(searchType);
+
+		search.setKeyword(keyword);
+
+
+	
 		//전체 게시글 개수
-		int listCnt = boardService.getBoardListCnt();
+		int listCnt = boardService.getBoardListCnt(search);
 		//Pagination 객체생성
 
-		Pagination pagination = new Pagination();
 
-		pagination.pageInfo(page, range, listCnt);
+		search.pageInfo(page, range, listCnt);
+
 					
-		model.addAttribute("pagination", pagination);
+		model.addAttribute("pagination", search);
 			
-		model.addAttribute("boardList", boardService.getBoardList(pagination));
+		model.addAttribute("boardList", boardService.getBoardList(search));
 		return "BoardPage/index";
 
 	}
