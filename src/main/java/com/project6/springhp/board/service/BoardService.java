@@ -2,10 +2,11 @@ package com.project6.springhp.board.service;
 
 import java.util.List;
 
+import com.project6.common.Pagination;
 import com.project6.springhp.dto.BDto;
 
 public interface BoardService {
-	public List<BDto> getBoardList() throws Exception;
+	public List<BDto> getBoardList(Pagination pagination) throws Exception;
 	
 	public void insertBoard(BDto Bdto) throws Exception;
 	
@@ -14,4 +15,8 @@ public interface BoardService {
 	public void updateBoard(BDto Bdto) throws Exception;
 	
 	public void deleteBoard(int bid) throws Exception;
+	
+	public int getBoardListCnt() throws Exception;
+
+		
 }

@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.project6.common.Pagination;
 import com.project6.springhp.dto.BDto;
 
 @Repository
@@ -17,8 +18,8 @@ public class BDaoImp implements BDao {
 
 
 	@Override
-	public List<BDto> getBoardList() throws Exception {
-		return sqlSession.selectList("com.project6.springhp.dao.mapper.BDao.getBoardList");
+	public List<BDto> getBoardList(Pagination pagination) throws Exception {
+		return sqlSession.selectList("com.project6.springhp.dao.mapper.BDao.getBoardList", pagination);
 	}
 
 	@Override
@@ -45,6 +46,15 @@ public class BDaoImp implements BDao {
 	public int updateViewCnt(int bid) throws Exception {
 		return sqlSession.update("com.project6.springhp.dao.mapper.BDao.updateViewCnt", bid);
 	}
+	
+	@Override
+	public int getBoardListCnt() throws Exception {
+		return sqlSession.selectOne("com.project6.springhp.dao.mapper.BDao.getBoardListCnt");
+	}
+
+
+
+	
 }
 
 
