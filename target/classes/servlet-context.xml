@@ -25,10 +25,10 @@
 	
 	
 	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
-		<beans:property name="username" value="leekijong" />
-		<beans:property name="password" value="0583" />
+		<beans:property name="driverClassName" value="#{datasource['jdbc.driverClassName']}" />
+		<beans:property name="url" value="#{datasource['jdbc.url']}" />
+		<beans:property name="username" value="#{datasource['jdbc.username']}" />
+		<beans:property name="password" value="#{datasource['jdbc.password']}" />
 	</beans:bean>
 	
 	<beans:bean id = "sqlSessionFactory" class = "org.mybatis.spring.SqlSessionFactoryBean">
