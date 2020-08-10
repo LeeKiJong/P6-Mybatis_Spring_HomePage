@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -59,19 +60,20 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/boardForm")
-	public String boardForm() {
+	public String boardForm(Model model) {
+		model.addAttribute("Bdto", new BDto());
 		return "BoardPage/boardForm";
 	}
 	
 	@RequestMapping(value = "/saveBoard", method = RequestMethod.POST)
 	public String saveBoard(@ModelAttribute("Bdto") BDto Bdto
-			/*, @RequestParam("mode") String mode*/
+			, @RequestParam("mode") String mode
 			, RedirectAttributes rttr) throws Exception {
-		/*if (mode.equals("edit")) {
+		if (mode.equals("edit")) {
 			boardService.updateBoard(Bdto);
-		} else {*/
+		} else {
 			boardService.insertBoard(Bdto);
-		//}
+		}
 		return "redirect:/board/getBoardList";
 	}
 	

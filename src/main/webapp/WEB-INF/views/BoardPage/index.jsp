@@ -49,7 +49,7 @@
 	function fn_prev(page, range, rangeSize) {
 
 			var page = ((range - 2) * rangeSize) + 1;
-
+ 
 			var range = range - 1;
 
 			
