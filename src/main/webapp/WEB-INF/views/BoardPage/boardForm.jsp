@@ -85,55 +85,49 @@
 
 			<h2>board Form</h2>
 
-			<form:form name="form" id="form" role="form" modelAttribute="Mdto" method="post" action="${pageContext.request.contextPath}/board/saveBoard">
+			<form name="form" id="form" role="form" method="post" action="${pageContext.request.contextPath}/board/saveBoard">
 
-<form:hidden path="bid" />
+				<div class="mb-3">
 
-<input type="hidden" name="mode" />
+					<label for="title">제목</label>
 
+					<input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력해 주세요">
 
-
-<div class="mb-3">
-
-<label for="title">제목</label>
-
-<form:input path="title" id="title" class="form-control" placeholder="제목을 입력해 주세요" />
-
-</div>
+				</div>
 
 				
 
-<div class="mb-3">
+				<div class="mb-3">
 
-<label for="reg_id">작성자</label>
+					<label for="reg_id">작성자</label>
 
-<form:input path="reg_id" id="reg_id" class="form-control" placeholder="이름을 입력해 주세요"  />
+					<input type="text" class="form-control" name="reg_id" id="reg_id" placeholder="이름을 입력해 주세요">
 
-</div>
-
-				
-
-<div class="mb-3">
-
-<label for="content">내용</label>
-
-<form:textarea path="content" id="content" class="form-control" rows="5" placeholder="내용을 입력해 주세요" />
-
-</div>
+				</div>
 
 				
 
-<div class="mb-3">
+				<div class="mb-3">
 
-<label for="tag">TAG</label>
+					<label for="content">내용</label>
 
-<form:input path="tag" id="tag" class="form-control" placeholder="태그를 입력해 주세요" />
+					<textarea class="form-control" rows="5" name="content" id="content" placeholder="내용을 입력해 주세요" ></textarea>
 
-</div>
+				</div>
+
+				
+
+				<div class="mb-3">
+
+					<label for="tag">TAG</label>
+
+					<input type="text" class="form-control" name="tag" id="tag" placeholder="태그를 입력해 주세요">
+
+				</div>
 
 			
 
-</form:form>
+			</form>
 
 			<div >
 

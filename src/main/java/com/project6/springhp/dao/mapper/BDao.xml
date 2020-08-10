@@ -6,9 +6,9 @@
 	<select id="getBoardList"
 		resultType="com.project6.springhp.dto.BDto">
 		SELECT
-		BID, CATE_CD, TITLE, CONTENT, TAG, VIEW_CNT, REG_ID,
+		BID, TITLE, CONTENT, TAG, VIEW_CNT, REG_ID,
 		REG_DT, EDIT_DT
-		FROM (SELECT BID, CATE_CD, TITLE, CONTENT, TAG,
+		FROM (SELECT BID, TITLE, CONTENT, TAG,
 		VIEW_CNT, REG_ID, REG_DT, EDIT_DT
 		from TBL_BOARD)
 		<trim prefix="WHERE" prefixOverrides="AND|OR">
@@ -23,14 +23,14 @@
 				AND reg_id like CONCAT('%', #{keyword}, '%')
 			</if>	
 		</trim>
-		WHERE RNUM BETWEEN
-		#{startList} AND {listSize}
+		WHERE BID BETWEEN
+		#{startList} AND #{listSize}
 	</select>
 	<select id="getBoardContent"
 		resultType="com.project6.springhp.dto.BDto"
 		parameterType="com.project6.springhp.dto.BDto">
 		SELECT
-		BID, CATE_CD, TITLE, CONTENT, TAG, VIEW_CNT,
+		BID, TITLE, CONTENT, TAG, VIEW_CNT,
 		REG_ID, REG_DT, EDIT_DT
 		FROM
 		TBL_BOARD
@@ -39,12 +39,11 @@
 	</select>
 	<insert id="insertBoard"
 		parameterType="com.project6.springhp.dto.BDto">
-		INSERT INTO TBL_BOARD (BID, CATE_CD, TITLE, CONTENT,
+		INSERT INTO TBL_BOARD (BID, TITLE, CONTENT,
 		TAG,
 		VIEW_CNT, REG_ID, REG_DT, EDIT_DT)
 		VALUES (
-		tbl_board_seq.nextval,
-		#{cate_cd}
+		tbl_board_seq.nextval
 		, #{title}
 		, #{content}
 		, #{tag}
@@ -58,8 +57,7 @@
 	<update id="updateBoard"
 		parameterType="com.project6.springhp.dto.BDto">
 		UPDATE TBL_BOARD SET
-		CATE_CD = #{cate_cd}
-		, TITLE =
+		TITLE =
 		#{title}
 		, CONTENT = #{content}
 		, TAG = #{tag}

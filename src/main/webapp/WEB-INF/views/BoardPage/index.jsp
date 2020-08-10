@@ -36,7 +36,7 @@
 	
 	function fn_contentView(bid){
 
-		var url = "${getBoardList}"; 
+		var url = "${pageContext.request.contextPath}/board/getBoardContent";
 
 		url = url + "?bid="+bid;
 

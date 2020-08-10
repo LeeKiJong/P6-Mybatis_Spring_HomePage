@@ -58,20 +58,20 @@ public class BoardController {
 
 	}
 	
-	@RequestMapping(value = "/boardFrom")
+	@RequestMapping(value = "/boardForm")
 	public String boardForm() {
 		return "BoardPage/boardForm";
 	}
 	
 	@RequestMapping(value = "/saveBoard", method = RequestMethod.POST)
 	public String saveBoard(@ModelAttribute("Bdto") BDto Bdto
-			, @RequestParam("mode") String mode
+			/*, @RequestParam("mode") String mode*/
 			, RedirectAttributes rttr) throws Exception {
-		if (mode.equals("edit")) {
+		/*if (mode.equals("edit")) {
 			boardService.updateBoard(Bdto);
-		} else {
+		} else {*/
 			boardService.insertBoard(Bdto);
-		}
+		//}
 		return "redirect:/board/getBoardList";
 	}
 	
