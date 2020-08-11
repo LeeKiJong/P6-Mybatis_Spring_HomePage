@@ -29,13 +29,10 @@
 
 		var url = "${pageContext.request.contextPath}/board/editForm";
 
-		url = url + "?bid=" + $
-		{
-			boardContent.bid
-		}
-		;
+		url = url + "?bid=" + ${boardContent.bid};
 
 		url = url + "&mode=edit";
+		
 		location.href = url;
 	});
 	

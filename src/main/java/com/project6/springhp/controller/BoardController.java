@@ -93,7 +93,7 @@ public class BoardController {
 
 		model.addAttribute("Bdto", new BDto());
 
-		return "BoardPage/boardForm";
+		return "board/boardForm";
 
 	}
 	
