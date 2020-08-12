@@ -15,6 +15,7 @@ import com.project6.common.Pagination;
 import com.project6.common.Search;
 import com.project6.springhp.board.service.BoardService;
 import com.project6.springhp.dto.BDto;
+import com.project6.springhp.dto.RDto;
 
 @Controller
 @RequestMapping(value = "/board")
@@ -80,6 +81,8 @@ public class BoardController {
 	@RequestMapping(value = "/getBoardContent", method = RequestMethod.GET)
 	public String getBoardContent(Model model, @RequestParam("bid") int bid) throws Exception {
 		model.addAttribute("boardContent", boardService.getBoardContent(bid));
+		model.addAttribute("Rdto", new RDto());
+
 		return "BoardPage/boardContent";
 	}
 	

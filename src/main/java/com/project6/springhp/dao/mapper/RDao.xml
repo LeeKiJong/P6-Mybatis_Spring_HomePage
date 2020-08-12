@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project6.springhp.dao.mapper.RDao">
+	<select id="getReplyList"
+		resultType="com.project6.springhp.dto.RDto">
+
+		SELECT
+
+		RID
+
+		, BID
+
+		, CONTENT
+
+		, REG_ID
+
+		, REG_DT
+
+		, EDIT_DT
+
+		FROM
+
+		TBL_REPLY
+
+		WHERE
+
+		BID = #{bid}
+
+		ORDER BY REG_DT desc
+
+	</select>
+
+	<insert id="saveReply"
+		parameterType="com.project6.springhp.dto.RDto">
+
+		INSERT INTO TBL_REPLY(BID, CONTENT, REG_ID, REG_DT,
+		EDIT_DT)
+
+		VALUES (
+
+		tbl_reply_seq.nextval
+
+		, #{content}
+
+		, #{reg_id}
+
+		, CURRENT_TIMESTAMP
+
+		, CURRENT_TIMESTAMP
+
+		)
+
+	</insert>
+
+
+
+	<update id="updateReply"
+		parameterType="com.project6.springhp.dto.RDto">
+
+		UPDATE TBL_REPLY SET
+
+		CONTENT = #{content}
+
+		, EDIT_DT = CURRENT_TIMESTAMP
+
+		WHERE
+
+		RID = #{rid}
+
+	</update>
+
+
+
+	<delete id="deleteReply" parameterType="int">
+
+		DELETE FROM TBL_REPLY
+
+		WHERE
+
+		RID = #{rid}
+
+	</delete>
+
+</mapper>
+
+
