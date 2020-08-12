@@ -57,11 +57,10 @@
 	<update id="updateBoard"
 		parameterType="com.project6.springhp.dto.BDto">
 		UPDATE TBL_BOARD SET
-		TITLE =
-		#{title}
+		TITLE = #{title}
 		, CONTENT = #{content}
 		, TAG = #{tag}
-		, EDIT_DT = now()
+		, EDIT_DT = CURRENT_TIMESTAMP
 		WHERE
 		BID
 		= ${bid}
