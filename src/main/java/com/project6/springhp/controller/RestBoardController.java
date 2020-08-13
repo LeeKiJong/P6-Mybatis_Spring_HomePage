@@ -43,7 +43,7 @@ public class RestBoardController {
 
 	public Map<String, Object> saveReply(@RequestBody RDto Rdto) throws Exception {
 
-		Map<String, Object> result = new HashMap<>();
+		Map<String, Object> result = new HashMap<String, Object>();
 
 		try {
 
