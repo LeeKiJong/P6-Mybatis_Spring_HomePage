@@ -13,6 +13,17 @@
 <meta charset="UTF-8">
 <title>board</title>
 <script>
+
+	<c:url var="saveReplyURL" value="/restBoard/saveReply">
+	</c:url>
+	
+	<c:url var="updateReplyURL" value="/restBoard/updateReply">
+	</c:url>
+	
+	<c:url var="deleteReplyURL" value="/restBoard/deleteReply">
+	</c:url>
+
+
 	$(document)
 			.on(
 					'click',
@@ -28,11 +39,7 @@
 
 		var url = "${pageContext.request.contextPath}/board/editForm";
 
-		url = url + "?bid=" + $
-		{
-			boardContent.bid
-		}
-		;
+		url = url + "?bid=" + ${boardContent.bid};
 
 		url = url + "&mode=edit";
 
@@ -45,11 +52,7 @@
 
 		var url = "${pageContext.request.contextPath}/board/deleteBoard";
 
-		url = url + "?bid=" + $
-		{
-			boardContent.bid
-		}
-		;
+		url = url + "?bid=" + ${boardContent.bid};
 
 		location.href = url;
 
@@ -63,17 +66,11 @@
 
 		var replyReg_id = $('#reg_id').val();
 
-		var paramData = JSON.stringify({
-			"content" : replyContent
+		var paramData = JSON.stringify({"content" : replyContent
+			,"reg_id" : replyReg_id
 
-			,
-			"reg_id" : replyReg_id
-
-			,
-			"bid" : '${boardContent.bid}'
-
+			,"bid" : '${boardContent.bid}'
 		});
-
 		var headers = {
 			"Content-Type" : "application/json"
 
@@ -119,16 +116,15 @@
 
 	});
 
-	function showReplyList() {
+	/*function showReplyList() {
 
-		var url = "${pageContext.request.contextPath}/restBoard/getReqlyList";
+		var url = "${pageContext.request.contextPath}/restBoard/getReplyList";
 
 		var paramData = {
 			"bid" : "${boardContent.bid}"
 		};
 
-		$
-				.ajax({
+		$.ajax({
 
 					type : 'POST',
 
@@ -148,8 +144,7 @@
 
 						} else {
 
-							$(result)
-									.each(
+							$(result).each(
 											function() {
 
 												htmls += '<div class="media text-muted pt-3" id="rid' + this.rid + '">';
@@ -263,15 +258,12 @@
 
 		var paramData = JSON.stringify({
 			"content" : replyEditContent
-
-			,
-			"rid" : rid
+			,"rid" : rid
 
 		});
 
 		var headers = {
 			"Content-Type" : "application/json"
-
 			,
 			"X-HTTP-Method-Override" : "POST"
 		};
@@ -348,6 +340,9 @@
 		});
 
 	}
+	
+	
+*/
 </script>
 </head>
 
@@ -430,7 +425,7 @@
 
 
 
-			<!-- Reply List {s}-->
+			<!-- Reply List {s}
 
 			<div class="my-3 p-3 bg-white rounded shadow-sm"
 				style="padding-top: 10px">
@@ -440,7 +435,7 @@
 				<div id="replyList"></div>
 
 			</div>
-
+			-->
 			<!-- Reply List {e}-->
 
 

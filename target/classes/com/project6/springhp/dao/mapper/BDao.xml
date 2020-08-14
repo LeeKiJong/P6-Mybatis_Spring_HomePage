@@ -62,8 +62,7 @@
 		, TAG = #{tag}
 		, EDIT_DT = CURRENT_TIMESTAMP
 		WHERE
-		BID
-		= ${bid}
+		BID = ${bid}
 	</update>
 	<delete id="deleteBoard" parameterType="int">
 		DELETE FROM TBL_BOARD
@@ -74,14 +73,12 @@
 		UPDATE TBL_BOARD SET
 		VIEW_CNT = VIEW_CNT + 1
 		WHERE
-		BID =
-		#{bid}
+		BID = #{bid}
 	</update>
 	<select id="getBoardListCnt" resultType="int">
 		SELECT
 		count(*) as listCnt
-		FROM
-		TBL_BOARD
+		FROM TBL_BOARD
 		<trim prefix="WHERE" prefixOverrides="AND|OR">
 			<if test="keyword != null and keyword != '' ">
 			<if test="searchType=='title'">

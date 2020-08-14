@@ -31,7 +31,7 @@ public class RestBoardController {
 
 	private BoardService boardService;
 
-	@RequestMapping(value = "/getReqlyList", method = RequestMethod.POST)
+	@RequestMapping(value = "/getReplyList", method = RequestMethod.POST)
 
 	public List<RDto> getReplyList(@RequestParam("bid") int bid) throws Exception {
 
