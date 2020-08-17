@@ -12,16 +12,10 @@
 
 <meta charset="UTF-8">
 <title>board</title>
+
 <script>
 
-	<c:url var="saveReplyURL" value="/restBoard/saveReply">
-	</c:url>
 	
-	<c:url var="updateReplyURL" value="/restBoard/updateReply">
-	</c:url>
-	
-	<c:url var="deleteReplyURL" value="/restBoard/deleteReply">
-	</c:url>
 
 
 	$(document)
@@ -79,8 +73,7 @@
 		};
 
 		$.ajax({
-
-			url : "${saveReplyURL}"
+			url : "${pageContext.request.contextPath}/restBoard/saveReply"
 
 			,
 			headers : headers
@@ -116,7 +109,7 @@
 
 	});
 
-	/*function showReplyList() {
+	function showReplyList() {
 
 		var url = "${pageContext.request.contextPath}/restBoard/getReplyList";
 
@@ -342,7 +335,7 @@
 	}
 	
 	
-*/
+
 </script>
 </head>
 
@@ -425,7 +418,7 @@
 
 
 
-			<!-- Reply List {s}
+			<!-- Reply List {s}-->
 
 			<div class="my-3 p-3 bg-white rounded shadow-sm"
 				style="padding-top: 10px">
@@ -435,7 +428,7 @@
 				<div id="replyList"></div>
 
 			</div>
-			-->
+			
 			<!-- Reply List {e}-->
 
 

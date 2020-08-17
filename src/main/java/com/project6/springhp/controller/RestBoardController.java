@@ -39,7 +39,7 @@ public class RestBoardController {
 
 	}
 
-	@RequestMapping(value = "/saveReqly", method = RequestMethod.POST)
+	@RequestMapping(value = "/saveReply", method = RequestMethod.POST)
 
 	public Map<String, Object> saveReply(@RequestBody RDto Rdto) throws Exception {
 
