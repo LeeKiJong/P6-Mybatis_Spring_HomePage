@@ -28,7 +28,6 @@ public class RestBoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
 	@Inject
-
 	private BoardService boardService;
 
 	@RequestMapping(value = "/getReplyList", method = RequestMethod.POST)

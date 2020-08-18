@@ -13,9 +13,14 @@
 <meta charset="UTF-8">
 <title>board</title>
 
-<script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		showReplyList();
+	});
 
-	
+
+
 
 
 	$(document)
@@ -113,9 +118,7 @@
 
 		var url = "${pageContext.request.contextPath}/restBoard/getReplyList";
 
-		var paramData = {
-			"bid" : "${boardContent.bid}"
-		};
+		var paramData = {"bid" : "${boardContent.bid}"};
 
 		$.ajax({
 
