@@ -13,14 +13,14 @@
 <meta charset="UTF-8">
 <title>board</title>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
-		showReplyList();
-	});
 
 
-
+	
+	showReplyList();
+	
+	
 
 
 	$(document)
@@ -199,7 +199,7 @@
 
 	}
 
-	function fn_editReply(rid, reg_id, content) {
+	/*function fn_editReply(rid, reg_id, content) {
 
 		var htmls = "";
 
@@ -335,7 +335,7 @@
 
 		});
 
-	}
+	}*/
 	
 	
 
@@ -434,7 +434,9 @@
 			
 			<!-- Reply List {e}-->
 
-
+			<button type="button" class="btn btn-sm btn-primary"
+								id="btnReplyList" style="width: 100%; margin-top: 10px">
+								댓글 보기</button>
 
 		</div>
 

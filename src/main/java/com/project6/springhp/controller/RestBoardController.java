@@ -1,5 +1,6 @@
 package com.project6.springhp.controller;
 
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,15 +32,13 @@ public class RestBoardController {
 	private BoardService boardService;
 
 	@RequestMapping(value = "/getReplyList", method = RequestMethod.POST)
-
 	public List<RDto> getReplyList(@RequestParam("bid") int bid) throws Exception {
-
+		
 		return boardService.getReplyList(bid);
 
 	}
 
 	@RequestMapping(value = "/saveReply", method = RequestMethod.POST)
-
 	public Map<String, Object> saveReply(@RequestBody RDto Rdto) throws Exception {
 
 		Map<String, Object> result = new HashMap<String, Object>();

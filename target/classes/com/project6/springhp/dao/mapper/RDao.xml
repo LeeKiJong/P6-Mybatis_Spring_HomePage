@@ -35,12 +35,14 @@
 	<insert id="saveReply"
 		parameterType="com.project6.springhp.dto.RDto">
 
-		INSERT INTO TBL_REPLY(BID, CONTENT, REG_ID, REG_DT,
+		INSERT INTO TBL_REPLY(RID, BID, CONTENT, REG_ID, REG_DT,
 		EDIT_DT)
 
 		VALUES (
 
 		tbl_reply_seq.nextval
+		
+		, #{bid}
 
 		, #{content}
 
